@@ -1,0 +1,1 @@
+INSERT INTO `colors` (`value`, `color`, `label`) VALUES ('purple', '#553fdb', 'Фиолетовый'), ('peach', '#ef6e58', 'Персиковый'), ('yellow', '#fac344', 'Желтый'), ('lightgreen', '#8ddb3f', 'Салатовый'), ('blue', '#58d4ef', 'Голубой');
