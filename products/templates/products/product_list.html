@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends "main/layout.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block content %}
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'products/css/styles.css' %}">
+    </head>
+    <h1>Список товаров</h1>
+    {% for type in types %}
+        <div class="category-block">
+            <h2>{{ type.name }}</h2>
+            <div class="card-list">
+                {% for product in products %}
+                    {% if type.id == product.type_id %}
+                        <div class="card">
+                            <div class="card-content">
+                                <h3>{{ product.name }}</h3>
+                                <p>Цена: {{ product.price }} руб.</p>
+                                <p>Количество на складе: {{ product.description }}</p>
+                                <p>Количество на складе: {{ product.count_storage }}</p>
+                                <p>Количество продаж: {{ product.count_sells }}</p>
+<!--                                <a href="{% url 'product_detail' product.id %}" class="btn">Подробнее</a>-->
+                            </div>
+                            <div class="card-image">
+                                {% if product.image %}
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="100">
+                                {% else %}
+                                    Нет изображения
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% empty %}
+                    <p>Нет товаров в этой категории</p>
+                {% endfor %}
+            </div>
+        </div>
+    {% empty %}
+        <p>Нет доступных типов товаров</p>
+    {% endfor %}
+{% endblock %}
+</html>

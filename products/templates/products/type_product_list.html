@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "main/layout.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block content %}
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'products/css/type_styles.css' %}">
+    </head>
+    <div class="container">
+        <div class="header-bar">
+            <a href="{% url 'type_product_list' %}" class="btn">Список типов товаров</a>
+                <a href="{% url 'add_type_product' %}" class="btn">Добавить новый тип товара</a>
+        </div>
+        <h1>Список типов товаров</h1>
+        <div class="type-product-list">
+            {% for type in types %}
+                <div class="type-product-card">
+                    <h2>{{ type.name }}</h2>
+                    {% if type.image %}
+                        <img src="{{ type.image.url }}" alt="{{ type.name }}" width="100">
+                    {% endif %}
+                    <p>{{ type.description }}</p>
+                        <a href="{% url 'edit_type_product' type.id %}" class="btn">Редактировать</a>
+                        <a href="{% url 'type_product_detail' type.id %}" class="btn">Подробнее</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+</html>

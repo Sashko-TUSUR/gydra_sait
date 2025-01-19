@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о типе товара</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'products/css/type_styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ type_product.name }}</h1>
+        <p>Описание: {{ type_product.description }}</p>
+        {% if type_product.image %}
+            <img src="{{ type_product.image.url }}" alt="{{ type_product.name }}" width="250">
+        {% else %}
+            <p>Нет изображения</p>
+        {% endif %}
+        <br>
+        <a href="{% url 'type_product_list' %}" class="btn">Назад к списку типов товаров</a>
+    </div>
+</body>
+</html>

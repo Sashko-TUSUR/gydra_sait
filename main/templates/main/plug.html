@@ -1,0 +1,16 @@
+{% extends "main\layout.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'products/css/type_styles.css' %}">
+    </head>
+    <div class="container">
+        <h1>Этот раздел находится в разработке</h1>
+        <p>Мы работаем над этим разделом и скоро он станет доступен.</p>
+        <a href="/" class="btn">Назад к списку типов товаров</a>
+    </div>
+{% endblock %}

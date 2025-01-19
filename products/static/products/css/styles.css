@@ -1,0 +1,201 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-bar .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.header-bar .btn:hover {
+    background-color: #0056b3;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Увеличиваем отступы между элементами формы */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type='number'],
+.form-group input[type="file"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.category-block {
+    margin-bottom: 40px;
+}
+
+.category-block h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    align-items: flex-start;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px); /* 3 карточки в ряд */
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.card-content {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.card-content p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.card-image {
+    flex: 0 0 auto;
+    width: 100px; /* Фиксированная ширина для изображения */
+    text-align: center;
+}
+
+.card-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.card a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.card a.btn:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: calc(50% - 20px); /* 2 карточки в ряд на устройствах с шириной экрана менее 768px */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%; /* Одна карточка в ряд на устройствах с шириной экрана менее 480px */
+        flex-direction: column; /* Изменяем направление флексбокса на колонку для мобильных устройств */
+        align-items: center; /* Выравнивание по центру для мобильных устройств */
+    }
+
+    .card-content {
+        margin-right: 0;
+        margin-bottom: 10px; /* Добавляем отступ для текста перед изображением на мобильных устройствах */
+    }
+
+    .card-image {
+        width: 100%; /* Изображение занимает всю ширину на мобильных устройствах */
+        text-align: center; /* Выравнивание изображения по центру на мобильных устройствах */
+    }
+
+    .header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-bar .btn {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'main/img/logo.png' %}" alt="HYDRA Logo" width="150">
+        </div>
+        <div class="register-box">
+            <h1>Регистрация</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">Имя пользователя</label>
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.password1.id_for_label }}">Пароль</label>
+                    {{ form.password1 }}
+                    {{ form.password1.errors }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.password2.id_for_label }}">Повторите пароль</label>
+                    {{ form.password2 }}
+                    {{ form.password2.errors }}
+                </div>
+                <button type="submit" class="btn">Зарегистрироваться</button>
+                <a href="{% url 'login' %}" class="forgot-password">Уже есть аккаунт? Войти</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
